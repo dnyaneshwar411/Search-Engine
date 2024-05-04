@@ -1,7 +1,9 @@
+import Pagination from "../components/Pagination";  
+
 import Link from "next/link";
 
 export default function ImageSearchResults({data}){
-return <div className="mt-4 pb-24">
+return <div className="mt-4 pb-40 md:pb-28">
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-3 gap-4">
 
     {data.items?.map(item=><div key={item.link} className="group mb-8">
@@ -19,5 +21,9 @@ return <div className="mt-4 pb-24">
     </div>)}
     
   </div>
+  <div className="md:ml-16">
+      <Pagination/>
+  </div>
+  
 </div>
 }

@@ -4,7 +4,9 @@ import { Link } from "next/navigation";
 export default async function WebSearchPage({ searchParams }) {
   const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
   const CONTEXT_KEY = process.env.CONTEXT_KEY;
-  const response = await fetch(`https://www.googleapis.com/customsearch/v1?key=${GOOGLE_API_KEY}&cx=${CONTEXT_KEY}&q=${searchParams.searchTerm}`);
+  const startIndex = searchParams.start || "1";
+  
+  const response = await fetch(`https://www.googleapis.com/customsearch/v1?key=${GOOGLE_API_KEY}&cx=${CONTEXT_KEY}&q=${searchParams.searchTerm}&start=${startIndex}`);
 
   if (!response.ok) throw new Error("Something went wrong");
 
