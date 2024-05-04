@@ -22,7 +22,7 @@ export default function HomeSearch() {
     try {
       const response = await fetch(`https://random-word-api.herokuapp.com/word`)
       const word = await response.json();
-      router.push(`/search/push/search-term=${word}`);
+      router.push(`/search/web?searchTerm=${word}`);
     } catch (error) {
       console.log(error.message);
     } finally {
